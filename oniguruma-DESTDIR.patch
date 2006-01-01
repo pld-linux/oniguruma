@@ -1,0 +1,31 @@
+--- oniguruma/Makefile.in~	2005-08-23 13:14:28.000000000 +0300
++++ oniguruma/Makefile.in	2006-01-02 00:04:04.000000000 +0200
+@@ -164,17 +164,17 @@
+ 	test -d enc || mkdir enc
+ 
+ install: all
+-	test -d $(prefix) || mkdir $(prefix)
+-	test -d $(exec_prefix) || mkdir $(exec_prefix)
+-	test -d $(libdir) || mkdir $(libdir)
+-	test -d $(includedir) || mkdir $(includedir)
+-	test -d $(bindir) || mkdir $(bindir)
+-	$(INSTALL) -m 644 $(libname) $(libdir)/$(libname)
+-	$(RANLIB)  $(libdir)/$(libname)
+-	$(INSTALL) -m 644 $(srcdir)/oniguruma.h  $(includedir)/oniguruma.h
+-	$(INSTALL) -m 644 $(srcdir)/onigposix.h  $(includedir)/onigposix.h
+-	$(INSTALL) -m 644 $(srcdir)/oniggnu.h    $(includedir)/oniggnu.h
+-	$(INSTALL) -m 755 onig-config            $(bindir)/onig-config
++	test -d $(DESTDIR)$(prefix) || mkdir $(DESTDIR)$(prefix)
++	test -d $(DESTDIR)$(exec_prefix) || mkdir $(DESTDIR)$(exec_prefix)
++	test -d $(DESTDIR)$(libdir) || mkdir $(DESTDIR)$(libdir)
++	test -d $(DESTDIR)$(includedir) || mkdir $(DESTDIR)$(includedir)
++	test -d $(DESTDIR)$(bindir) || mkdir $(DESTDIR)$(bindir)
++	$(INSTALL) -m 644 $(libname) $(DESTDIR)$(libdir)/$(libname)
++	$(RANLIB)  $(DESTDIR)$(libdir)/$(libname)
++	$(INSTALL) -m 644 $(srcdir)/oniguruma.h  $(DESTDIR)$(includedir)/oniguruma.h
++	$(INSTALL) -m 644 $(srcdir)/onigposix.h  $(DESTDIR)$(includedir)/onigposix.h
++	$(INSTALL) -m 644 $(srcdir)/oniggnu.h    $(DESTDIR)$(includedir)/oniggnu.h
++	$(INSTALL) -m 755 onig-config            $(DESTDIR)$(bindir)/onig-config
+ 
+ uninstall:
+ 	-rm -f $(libdir)/$(libname)
