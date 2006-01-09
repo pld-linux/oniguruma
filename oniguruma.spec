@@ -4,7 +4,8 @@
 # Conditional build:
 %bcond_without	tests		# build without tests
 #
-Summary:	Oniguruma is a regular expressions library
+Summary:	Oniguruma - a regular expressions library
+Summary(pl):	Oniguruma - biblioteka wyra¿eñ regularnych
 Name:		oniguruma
 Version:	3.9.1
 Release:	0.1
@@ -21,6 +22,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 The characteristics of this library is that different character
 encoding for every regular expression object can be specified.
+
+%description -l pl
+Biblioteka Oniguruma charakteryzuje siê tym, ¿e mo¿na podaæ inne
+kodowanie znaków dla ka¿dego obiektu wyra¿enia regularnego.
 
 %prep
 %setup -q -n %{name}
@@ -52,6 +57,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/onigposix.h
 %{_includedir}/oniguruma.h
 %{_libdir}/libonig.a
-
-%files subpackage
-%defattr(644,root,root,755)
