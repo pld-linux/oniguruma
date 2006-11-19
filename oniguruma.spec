@@ -48,8 +48,6 @@ Static Oniguruma library.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_prefix}
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
