@@ -63,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc HISTORY README
 %doc %lang(ja) README.ja
-%attr(755,root,root) %{_prefix}/lib/libonig.so.1.0.0
+%attr(755,root,root) %{_libdir}/libonig.so.1.0.0
 
 %files devel
 %defattr(644,root,root,755)
