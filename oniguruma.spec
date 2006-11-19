@@ -1,19 +1,12 @@
-# TODO
-# - shared library
-#
-# Conditional build:
-%bcond_without	tests		# build without tests
-#
 Summary:	Oniguruma - a regular expressions library
 Summary(pl):	Oniguruma - biblioteka wyra¿eñ regularnych
 Name:		oniguruma
-Version:	3.9.1
-Release:	0.1
+Version:	4.5.1
+Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	http://www.geocities.jp/kosako3/oniguruma/archive/onigd20051129.tar.gz
-# Source0-md5:	5ff638b59a75ad343b9abf1db9d57c16
-Patch0:		%{name}-DESTDIR.patch
+Source0:	http://www.geocities.jp/kosako3/oniguruma/archive/onig-%{version}.tar.gz
+# Source0-md5:	ba3dd9caeca80afff318a1897c46327f
 URL:		http://www.geocities.jp/kosako3/oniguruma/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -27,16 +20,31 @@ encoding for every regular expression object can be specified.
 Biblioteka Oniguruma charakteryzuje siê tym, ¿e mo¿na podaæ inne
 kodowanie znaków dla ka¿dego obiektu wyra¿enia regularnego.
 
+%package devel
+Summary:	Header files for Oniguruma library
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description devel
+This is the package containing the header files for Oniguruma library.
+
+%package static
+Summary:	Static Oniguruma library
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static Oniguruma library.
+
 %prep
-%setup -q -n %{name}
-%patch0 -p1
+%setup -q -n onig-%{version}
 
 %build
 %{__aclocal}
 %{__autoconf}
+%{__automake}
 %configure
 %{__make}
-%{?with_tests:%{__make} ctest}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -48,12 +56,23 @@ install -d $RPM_BUILD_ROOT%{_prefix}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
-%doc COPYING HISTORY README
+%doc HISTORY README
 %doc %lang(ja) README.ja
+%attr(755,root,root) %{_prefix}/lib/libonig.so.1.0.0
+
+%files devel
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/onig-config
+%{_libdir}/libonig.la
 %{_includedir}/oniggnu.h
 %{_includedir}/onigposix.h
 %{_includedir}/oniguruma.h
+
+%files static
+%defattr(644,root,root,755)
 %{_libdir}/libonig.a
