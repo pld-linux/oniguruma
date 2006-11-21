@@ -22,19 +22,27 @@ kodowanie znaków dla ka¿dego obiektu wyra¿enia regularnego.
 
 %package devel
 Summary:	Header files for Oniguruma library
+Summary(pl):	Pliki nag³ówkowe biblioteki Oniguruma
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 This is the package containing the header files for Oniguruma library.
 
+%description devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe biblioteki Oniguruma.
+
 %package static
 Summary:	Static Oniguruma library
+Summary(pl):	Statyczna biblioteka Oniguruma
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static Oniguruma library.
+
+%description static -l pl
+Statyczna biblioteka Oniguruma.
 
 %prep
 %setup -q -n onig-%{version}
@@ -48,6 +56,7 @@ Static Oniguruma library.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -66,6 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/onig-config
+%attr(755,root,root) %{_libdir}/libonig.so
 %{_libdir}/libonig.la
 %{_includedir}/oniggnu.h
 %{_includedir}/onigposix.h
