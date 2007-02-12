@@ -1,5 +1,5 @@
 Summary:	Oniguruma - a regular expressions library
-Summary(pl):	Oniguruma - biblioteka wyraøeÒ regularnych
+Summary(pl.UTF-8):   Oniguruma - biblioteka wyra≈ºe≈Ñ regularnych
 Name:		oniguruma
 Version:	4.5.1
 Release:	1
@@ -16,32 +16,32 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 The characteristics of this library is that different character
 encoding for every regular expression object can be specified.
 
-%description -l pl
-Biblioteka Oniguruma charakteryzuje siÍ tym, øe moøna podaÊ inne
-kodowanie znakÛw dla kaødego obiektu wyraøenia regularnego.
+%description -l pl.UTF-8
+Biblioteka Oniguruma charakteryzuje siƒô tym, ≈ºe mo≈ºna podaƒá inne
+kodowanie znak√≥w dla ka≈ºdego obiektu wyra≈ºenia regularnego.
 
 %package devel
 Summary:	Header files for Oniguruma library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki Oniguruma
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki Oniguruma
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 This is the package containing the header files for Oniguruma library.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nag≥Ûwkowe biblioteki Oniguruma.
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nag≈Ç√≥wkowe biblioteki Oniguruma.
 
 %package static
 Summary:	Static Oniguruma library
-Summary(pl):	Statyczna biblioteka Oniguruma
+Summary(pl.UTF-8):   Statyczna biblioteka Oniguruma
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static Oniguruma library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka Oniguruma.
 
 %prep
