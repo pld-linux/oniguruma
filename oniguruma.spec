@@ -1,5 +1,5 @@
 Summary:	Oniguruma - a regular expressions library
-Summary(pl.UTF-8):   Oniguruma - biblioteka wyrażeń regularnych
+Summary(pl.UTF-8):	Oniguruma - biblioteka wyrażeń regularnych
 Name:		oniguruma
 Version:	4.5.1
 Release:	1
@@ -22,7 +22,7 @@ kodowanie znaków dla każdego obiektu wyrażenia regularnego.
 
 %package devel
 Summary:	Header files for Oniguruma library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki Oniguruma
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Oniguruma
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -34,7 +34,7 @@ Ten pakiet zawiera pliki nagłówkowe biblioteki Oniguruma.
 
 %package static
 Summary:	Static Oniguruma library
-Summary(pl.UTF-8):   Statyczna biblioteka Oniguruma
+Summary(pl.UTF-8):	Statyczna biblioteka Oniguruma
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
