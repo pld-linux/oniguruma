@@ -1,12 +1,12 @@
 Summary:	Oniguruma - a regular expressions library
 Summary(pl.UTF-8):	Oniguruma - biblioteka wyrażeń regularnych
 Name:		oniguruma
-Version:	5.5.2
+Version:	5.9.1
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://www.geocities.jp/kosako3/oniguruma/archive/onig-%{version}.tar.gz
-# Source0-md5:	0571de5686fe9edeb6b6e1fb630e3012
+# Source0-md5:	5ce5f9bba5e83f0ea6ec24e1ac77091c
 URL:		http://www.geocities.jp/kosako3/oniguruma/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -70,7 +70,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc HISTORY README
 %doc %lang(ja) README.ja
-%attr(755,root,root) %{_libdir}/libonig.so.2.0.0
+%attr(755,root,root) %{_libdir}/libonig.so.*.*.*
+%attr(755,root,root) %ghost  %{_libdir}/libonig.so.2
 
 %files devel
 %defattr(644,root,root,755)
