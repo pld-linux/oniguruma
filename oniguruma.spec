@@ -10,6 +10,7 @@ Source0:	http://www.geocities.jp/kosako3/oniguruma/archive/onig-%{version}.tar.g
 URL:		http://www.geocities.jp/kosako3/oniguruma/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -48,6 +49,7 @@ Statyczna biblioteka Oniguruma.
 %setup -q -n onig-%{version}
 
 %build
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
