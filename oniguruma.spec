@@ -1,15 +1,16 @@
 Summary:	Oniguruma - a regular expressions library
 Summary(pl.UTF-8):	Oniguruma - biblioteka wyrażeń regularnych
 Name:		oniguruma
-Version:	5.9.6
-Release:	2
+Version:	6.0.0
+Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	http://www.geocities.jp/kosako3/oniguruma/archive/onig-%{version}.tar.gz
-# Source0-md5:	d08f10ea5c94919780e6b7bed1ef9830
-URL:		http://www.geocities.jp/kosako3/oniguruma/
-BuildRequires:	autoconf
-BuildRequires:	automake
+#Source0Download: https://github.com/kkos/oniguruma/releases
+Source0:	https://github.com/kkos/oniguruma/releases/download/v%{version}/onig-%{version}.tar.gz
+# Source0-md5:	67a9da531f5dc92a3ca13fa196519959
+URL:		https://github.com/kkos/oniguruma
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake >= 1:1.14
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,8 +51,9 @@ Statyczna biblioteka Oniguruma.
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
 %{__make}
@@ -62,6 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# no external dependencies (and .pc exists)
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libonig.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -70,16 +75,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc HISTORY README
-%doc %lang(ja) README.ja
+%doc AUTHORS COPYING HISTORY README.md index.html
+%doc %lang(ja) README.ja index_ja.html
 %attr(755,root,root) %{_libdir}/libonig.so.*.*.*
-%attr(755,root,root) %ghost  %{_libdir}/libonig.so.2
+%attr(755,root,root) %ghost  %{_libdir}/libonig.so.3
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/onig-config
 %attr(755,root,root) %{_libdir}/libonig.so
-%{_libdir}/libonig.la
 %{_includedir}/oniggnu.h
 %{_includedir}/onigposix.h
 %{_includedir}/oniguruma.h
