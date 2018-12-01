@@ -11,7 +11,7 @@ Source0:	https://github.com/kkos/oniguruma/releases/download/v%{version}/onig-%{
 URL:		https://github.com/kkos/oniguruma
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.14
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
