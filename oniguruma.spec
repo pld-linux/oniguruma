@@ -1,13 +1,13 @@
 Summary:	Oniguruma - a regular expressions library
 Summary(pl.UTF-8):	Oniguruma - biblioteka wyrażeń regularnych
 Name:		oniguruma
-Version:	6.9.8
+Version:	6.9.9
 Release:	1
 License:	BSD
 Group:		Libraries
 # Source0Download: https://github.com/kkos/oniguruma/releases
 Source0:	https://github.com/kkos/oniguruma/releases/download/v%{version}/onig-%{version}.tar.gz
-# Source0-md5:	ceb0ce338e6ad444615c1daac1e260a7
+# Source0-md5:	411822bd3b279f7525ff5d2fcc3cced2
 URL:		https://github.com/kkos/oniguruma
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.14
