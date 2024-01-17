@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# static library
+
 Summary:	Oniguruma - a regular expressions library
 Summary(pl.UTF-8):	Oniguruma - biblioteka wyrażeń regularnych
 Name:		oniguruma
@@ -12,6 +16,7 @@ URL:		https://github.com/kkos/oniguruma
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.14
 BuildRequires:	libtool >= 2:2
+BuildRequires:	rpmbuild(macros) >= 1.527
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -55,7 +60,8 @@ Statyczna biblioteka Oniguruma.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	%{__enable_disable static_libs static}
 %{__make}
 
 %install
@@ -88,6 +94,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/oniguruma.h
 %{_pkgconfigdir}/oniguruma.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libonig.a
+%endif
